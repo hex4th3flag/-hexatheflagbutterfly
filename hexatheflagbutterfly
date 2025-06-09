@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HexaTheFlag - CTF Viola Glitch</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      margin: 0;
+      background: #120e2f;
+      color: #bb86fc;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #bb86fc;
+      text-transform: uppercase;
+      position: relative;
+      animation: flicker 3s infinite alternate;
+      text-shadow:
+        0 0 5px #bb86fc,
+        0 0 10px #bb86fc,
+        0 0 20px #bb86fc,
+        0 0 40px #bb86fc,
+        0 0 80px #bb86fc;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #bb86fc,
+          0 0 10px #bb86fc,
+          0 0 20px #bb86fc,
+          0 0 40px #bb86fc,
+          0 0 80px #bb86fc;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.5;
+        text-shadow: none;
+      }
+    }
+
+    .challenge {
+      background: #1c1745;
+      border: 2px solid #bb86fc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      width: 80%;
+      max-width: 600px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .challenge:hover, .challenge:focus {
+      box-shadow: 0 0 25px #bb86fc;
+      border-color: #d1b3ff;
+      outline: none;
+    }
+
+    .submit-btn {
+      background: #bb86fc;
+      color: #120e2f;
+      padding: 1rem 3rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 999px;
+      margin-top: 2rem;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      box-shadow:
+        0 0 10px #bb86fc,
+        0 0 20px #bb86fc;
+    }
+
+    .submit-btn:hover {
+      background-color: #d1b3ff;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 10px #bb86fc,
+          0 0 20px #bb86fc,
+          0 0 30px #d1b3ff;
+      }
+      50% {
+        box-shadow:
+          0 0 20px #bb86fc,
+          0 0 30px #d1b3ff,
+          0 0 40px #d1b3ff;
+      }
+    }
+
+    /* Neve */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #ffffff99;
+      user-select: none;
+      z-index: 999;
+      font-size: 1em;
+      animation-name: fall;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opaci
